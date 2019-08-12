@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import avatar from './../shared/images/gustavo.jpg';
-
+import About from './AboutComponent';
 import{ Row, Col, Container } from 'reactstrap';
 class Main extends Component {
     constructor(props) {
@@ -19,7 +19,7 @@ class Main extends Component {
                     <Row>
                         <Col md="12" className="text-center">
                             <h3 className="display-3">
-                                Currículo Vitae
+                                
                             </h3>
                         </Col>
                     </Row>
@@ -37,20 +37,21 @@ class Main extends Component {
                     </Row>
                     <Row>
                         <Col md="4" className="mt-3 text-center">
-                            <h4>Linguagem principal: </h4> <span className="h1">Javascript</span>
+                            <h4>Linguagem principal: </h4> <span>Javascript</span>
                         </Col>
                         <Col md="4" className="mt-3 text-center">
-                            <h4>Frameworks: </h4> <span className="h1">ReactJS, Angular, Ionic, Nativescript, Laravel (APIRestful), Loopback</span>
+                            <h4>Frameworks: </h4> <span>ReactJS, Angular, Ionic, Nativescript, Laravel (APIRestful), Loopback</span>
                         </Col>
                         <Col md="4" className="mt-3 text-center">
-                            <h4>Backend: </h4> <span className="h1">MySQL, MongoDB</span>
+                            <h4>Backend: </h4> <span>MySQL, MongoDB</span>
                         </Col>
                     </Row>
                     <Row>
                         <Col md="12" className="text-center mt-3">
-                            <h4>Servidores:</h4> <span className="h1">Web, Firewall, SQL</span>
+                            <h4>Servidores:</h4> <span>Web, Firewall, SQL, Proxy, Roteamento</span>
                         </Col>
                     </Row>
+                    <About />
                 </Container>
             </div>
         );
