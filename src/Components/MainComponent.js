@@ -39,18 +39,18 @@ class Main extends Component {
                         </Col>
                     </Row>
                     <Row>
-                        <Col md="4" className="mt-5 text-center">
+                        <Col md="4" className="mt-md-5 mt-3 text-center">
                             <h4>Linguagem principal: </h4> <span>Javascript</span>
                         </Col>
-                        <Col md="4" className="mt-5 text-center">
+                        <Col md="4" className="mt-md-5 mt-3 text-center">
                             <h4>Frameworks: </h4> <span>ReactJS, Angular, Ionic, Nativescript, Laravel (APIRestful), Loopback, Bootstrap</span>
                         </Col>
-                        <Col md="4" className="mt-5 text-center">
+                        <Col md="4" className="mt-md-5 mt-3 text-center">
                             <h4>Backend: </h4> <span>MySQL, MongoDB</span>
                         </Col>
                     </Row>
                     <Row>
-                        <Col md="12" className="text-center mt-5">
+                        <Col md="12" className="text-center mt-md-5 mt-3">
                             <h4>Servidores:</h4> <span>Web, Firewall, SQL, Proxy, Roteamento</span>
                         </Col>
                     </Row>

@@ -6,9 +6,9 @@ function About(props) {
     return (
         <React.Fragment>
             <Row>
-                <Col md="12" className="mt-5">
+                <Col md="12" className="mt-md-5 mt-3">
                     <Card>
-                        <CardBody>
+                        <CardBody style={{paddingBottom: 30}}>
                             <CardTitle><b>Sobre:</b></CardTitle>
                             <Row>
                                 <Col md="12">
@@ -16,7 +16,7 @@ function About(props) {
                                     progredi para reparos eletrônicos e a medida que fui estudando me aprofundei em programação. Comecei com C, C++ e cai no mundo dos sistemas Web. Amo UX, luto pela UI
                                     perfeita mas é em desenvolvimento que foco. Javascript é minha paixão, me rendo ao PHP em alguns momentos mas o importante é oferer boas soluções. Gosto de simplicidade,
                                     no código e na vida.
-                                        <br />
+                                    <br />
                                 </Col>
                             </Row>
                         </CardBody>
