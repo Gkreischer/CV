@@ -11,7 +11,7 @@ function Formacao(props) {
                             <CardTitle><b>Formação:</b></CardTitle>
                             <Row>
                                 <Col md="6" className="text-center">
-                                    <a href="http://cederj.edu.br/cederj/"><b>CEDERJ</b></a> - Tecnólogo em Sistemas de Computação (cursando)
+                                    <a href="http://cederj.edu.br/cederj/"><b>CEDERJ - UFF</b></a> - Tecnologia em Sistemas de Computação (cursando)
                                 </Col>
                                 <Col md="6" className="text-center">
                                     <a href="https://www.coursera.org/"><b>Coursera</b></a> - Universidade de Ciência e Tecnologia de Hong Kong
