@@ -46,7 +46,7 @@ class Main extends Component {
                             <h4>Frameworks: </h4> <span>ReactJS, Angular, Ionic, Nativescript, Laravel (APIRestful), Loopback, Bootstrap</span>
                         </Col>
                         <Col md="4" className="mt-md-5 mt-3 text-center">
-                            <h4>Backend: </h4> <span>MySQL, MongoDB</span>
+                            <h4>Backend: </h4> <span>MySQL, MongoDB, NodeJs</span>
                         </Col>
                     </Row>
                     <Row>
