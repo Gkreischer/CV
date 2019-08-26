@@ -1,5 +1,24 @@
 import React, { Component } from 'react';
 import { Row, Col, Button, Modal, ModalBody, ModalHeader, Form, Input, Label, FormGroup } from 'reactstrap';
+import fetch from 'cross-fetch';
+import { baseUrl } from './../shared/baseUrl';
+
+function ShowLoader(props) {
+    if(props){
+        return(
+            <React.Fragment>
+                <Col md="7" className="text-right">
+                    <i className="fa fa-refresh fa-spin fa-3x fa-fw"></i>
+                    <span className="sr-only">Loading...</span>                  
+                </Col>
+            </React.Fragment>
+        );
+    } else {
+        return(
+            <React.Fragment></React.Fragment>
+        );
+    }
+}
 
 class Contato extends Component {
     constructor(props) {
@@ -9,13 +28,16 @@ class Contato extends Component {
             modal: false,
             name: '',
             email: '',
-            msg: ''
+            msg: '',
+            loading: false,
+            successMsg: ''
         }
 
         this.toggleModal = this.toggleModal.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-
+        this.changeStateToShowLoader = this.changeStateToShowLoader.bind(this);
+        this.resetForm = this.resetForm.bind(this);
     }
 
     toggleModal() {
@@ -34,12 +56,63 @@ class Contato extends Component {
         });
     }
 
+    resetForm() {
+        this.setState({name: '', email: '', msg: ''});
+    }
+
+    changeStateToShowLoader(){
+        this.setState(prevState => ({
+            loading: !prevState.loading
+        }));
+    }
+
     handleSubmit(event) {
         event.preventDefault();
-        alert(JSON.stringify(this.state));
+
+        this.changeStateToShowLoader();
+        
+        let formData = {name: this.state.name, email: this.state.email, msg: this.state.msg};
+
+        console.log(formData);
+
+        return fetch(baseUrl + '/contacts', {
+            method: 'POST',
+            body: JSON.stringify(formData),
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json' 
+            },
+            credentials: 'same-origin'
+        }).then((response) => {
+            if(response.ok){
+                this.resetForm();
+                this.setState({successMsg: 'Contato realizado com sucesso. Retornarei em breve! Obrigado'});
+                return response;
+            } else {
+                var error = new Error(`Error: ${response.status} : ${response.statusText}`);
+                error.response = response;
+                throw error;
+            }
+        },
+            error => {
+                throw error;
+            }
+        )
+        .then((response) => response.json())
+        .then((response) => {
+            this.changeStateToShowLoader();
+            console.log(response);
+        })
+        .catch((error) => {
+            this.changeStateToShowLoader();
+            console.log(error);
+        });
+
+        
     }
 
     render() {
+        const showLoader = ShowLoader(this.state.loading);
         return (
             <React.Fragment>
                 <Row className="justify-content-center mt-md-5 mt-3">
@@ -80,8 +153,17 @@ class Contato extends Component {
                                     </FormGroup>
                                 </Col>
                             </Row>
-                            <Button color="primary" type="submit" className="mr-2">Enviar</Button>
-                            <Button color="danger" type="button" onClick={this.toggleModal}>Cancelar</Button>
+                            <Row>
+                                <Col md="5">
+                                    <Button disabled={!this.state.name || !this.state.email || !this.state.msg} color="primary" type="submit" className="mr-2">Enviar</Button>
+                                    <Button color="danger" type="button" onClick={this.toggleModal}>Cancelar</Button>
+                                </Col>
+                                <Col md="7">
+                                    {showLoader}
+                                    <span className="small-text">{this.state.successMsg}</span>
+                                </Col>
+                            </Row>
+                            
                         </Form>
                     </ModalBody>
                 </Modal>

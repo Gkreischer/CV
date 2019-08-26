@@ -1,0 +1,1 @@
+export const baseUrl = 'http://www.gkreischer.tech:3000/api';
