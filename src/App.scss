@@ -2,8 +2,18 @@
 
 body {
     font-family: 'Lato', sans-serif;
-    background-color: #efefef;
+    background-color: #f8f9fa!important;
     padding-bottom: 5vh;
+
+    .logo_position {
+        
+        @media screen and (max-width: 767px) {
+            width: 10em !important;
+            max-width: none;
+
+        }
+    }
+
 }
 
 .small-text {

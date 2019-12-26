@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import{ Row, Col, Container } from 'reactstrap';
+import { Row, Col, Container, Jumbotron } from 'reactstrap';
 import avatar from './../shared/images/gustavo.jpg';
 import About from './AboutComponent';
 import Formacao from './FormacaoComponent';
 import Contato from './ContatoComponent';
+import Sistema from './SistemasComponent';
+import Reveal from 'react-reveal/Reveal';
 
 
 class Main extends Component {
@@ -16,47 +18,49 @@ class Main extends Component {
     }
 
     render() {
-        return(
+        return (
             <div>
                 <Container>
                     <Row>
-                        <Col md="12" className="text-center mt-3">
-                            <h3>
-                               Gustavo Kreischer de Almeida 
-                            </h3>
+                        <Col md="12" xs="12">
+                            <Jumbotron fluid className="mt-5 bg-light">
+                                <Container fluid className="px-md-5">
+                                    <Row>
+                                        <Col md="3" xs="3">
+                                            <Reveal>
+                                                <img src={require('./../shared/images/gustavo.jpg')} className="logo_position img-fluid rounded mt-md-3" />
+                                            </Reveal>
+                                        </Col>
+                                        <Col md="8" xs="12">
+                                            <Reveal>
+                                                <h1 className="display-4">Gustavo Kreischer de Almeida</h1>
+
+                                                <p className="lead">Desenvolvedor Full Stack MEAN e React</p>
+                                                <br />
+                                                <p><b>Main language:</b> Javascript</p>
+                                                <p><b>Tecnologias utilizadas:</b>React, React Native, NodeJs, Loopback, Laravel, Express, MongoDB, Servidores Linux, Ionic, Nativescript</p>
+                                            </Reveal>
+                                        </Col>
+                                    </Row>
+                                </Container>
+                                <Container>
+                                    <Row>
+                                        <Col md="12">
+                                            <Formacao />
+                                        </Col>
+                                    </Row>
+                                </Container>
+                                <Container>
+                                    <Row>
+                                        <Col md="12">
+                                            <Sistema />
+                                        </Col>
+                                    </Row>
+                                </Container>
+
+                            </Jumbotron>
                         </Col>
                     </Row>
-                    <Row>
-                        <Col md="12" className="text-center mt-3">
-                            <img src={avatar} style={{width: 250}} className="img-fluid img-thumbnail rounded" alt="Foto Gustavo Kreischer de Almeida"/>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col md="12" className="text-center">
-                            <p className="text-lead mt-1">
-                                Desenvolvedor Fullstack Web Developper | Técnico em Informática<br/><a href="https://www.linkedin.com/in/gkprogrammer">LinkedIn</a><br/><a href="https://github.com/Gkreischer">GitHub</a>
-                            </p>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col md="4" className="mt-md-5 mt-3 text-center">
-                            <h4>Linguagem principal: </h4> <span>Javascript</span>
-                        </Col>
-                        <Col md="4" className="mt-md-5 mt-3 text-center">
-                            <h4>Frameworks: </h4> <span>ReactJS, Angular, Ionic, Nativescript, Laravel (APIRestful), Loopback, Bootstrap</span>
-                        </Col>
-                        <Col md="4" className="mt-md-5 mt-3 text-center">
-                            <h4>Backend: </h4> <span>MySQL, MongoDB, NodeJs</span>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col md="12" className="text-center mt-md-5 mt-3">
-                            <h4>Servidores:</h4> <span>Web, Firewall, SQL, Proxy, Roteamento</span>
-                        </Col>
-                    </Row>
-                    <Formacao />
-                    <About/>
-                    <Contato />
                 </Container>
             </div>
         );

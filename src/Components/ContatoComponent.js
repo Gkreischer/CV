@@ -160,7 +160,7 @@ class Contato extends Component {
                                 </Col>
                                 <Col md="7">
                                     {showLoader}
-                                    <span className="small-text">{this.state.successMsg}</span>
+                                    <span className="small-text text-danger">{this.state.successMsg}</span>
                                 </Col>
                             </Row>
                             
